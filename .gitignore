@@ -1,0 +1,47 @@
+# ── Système ────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Dépendances ─────────────────────────────────────────────
+node_modules
+
+# ── Build SvelteKit ─────────────────────────────────────────
+/build
+/.svelte-kit
+/package
+.output
+
+# ── Déploiement ─────────────────────────────────────────────
+.vercel
+.netlify
+
+# ── Environnement – NE JAMAIS COMMITER ──────────────────────
+.env
+.env.*
+!.env.example
+
+# ── Scripts de seed (contiennent des credentials) ───────────
+seed-exercises.sh
+create-workouts-*.sh
+
+# ── Sources d'assets (copiées dans static/) ─────────────────
+AppImages/
+
+# ── Fichiers personnels ──────────────────────────────────────
+*.pdf
+
+# ── Logs ────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# ── Cache Vite ───────────────────────────────────────────────
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+.vite/
+
+# ── PWA / Workbox (générés au build) ─────────────────────────
+public/sw.js
+public/workbox-*.js
+/build/sw.js
+/build/workbox-*.js

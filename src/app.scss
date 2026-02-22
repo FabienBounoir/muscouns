@@ -1,0 +1,73 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
+:root {
+	/* ─── Palette ─── */
+	--primary-50:  #fcf3ff;
+	--primary-100: #f7e3ff;
+	--primary-200: #f0cdff;
+	--primary-300: #e5a5ff;
+	--primary-400: #d66cff;
+	--primary-500: #c735ff;
+	--primary-600: #b90fff;
+	--primary-700: #a400f0;
+	--primary-800: #8a06c3;
+	--primary-900: #71079c;
+
+	/* ─── Surfaces (dark theme) ─── */
+	--bg:        #0b0118;   /* deepest background */
+	--surface-1: #160328;   /* panels / cards */
+	--surface-2: #1f053a;   /* elevated surfaces */
+	--surface-3: #290748;   /* inputs / nested elements */
+
+	/* ─── Borders ─── */
+	--border:       rgba(164, 0, 240, 0.28);
+	--border-hover: rgba(199, 53, 255, 0.50);
+	--border-focus: rgba(199, 53, 255, 0.70);
+
+	/* ─── Text ─── */
+	--text-1: #f5ecff;        /* headings, primary content  — ~14:1 on surface-1 */
+	--text-2: #cdbde8;        /* secondary / labels         — ~8:1 on surface-1   */
+	--text-3: #9878c4;        /* muted / disabled           — ~4.6:1 on surface-1 */
+
+	/* ─── Accent ─── */
+	--accent:      #c735ff;
+	--accent-2:    #d66cff;
+	--accent-glow: rgba(199, 53, 255, 0.16);
+
+	/* ─── Semantic ─── */
+	--danger:      #ff5c8a;
+	--danger-dim:  rgba(255, 92, 138, 0.12);
+	--success:     #5de89f;
+
+	font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	color: var(--text-1);
+	line-height: 1.4;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+*::selection {
+	background: var(--accent);
+	color: #fff;
+}
+
+body {
+	min-height: 100vh;
+	background: var(--bg);
+	color: var(--text-1);
+}
+
+button,
+input,
+select {
+	font: inherit;
+}
+
+button {
+	cursor: pointer;
+}
