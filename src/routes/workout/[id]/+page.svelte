@@ -328,12 +328,20 @@
 	{/if}
 
 	{#if loading || !workout}
-		<section class="loading-screen" aria-live="polite" aria-busy="true">
-			<div class="dumbbell-loader" role="img" aria-label="Chargement de l'entraînement">
-				<i class="fa-solid fa-dumbbell dumbbell left"></i>
-				<i class="fa-solid fa-dumbbell dumbbell right"></i>
-			</div>
-			<p class="loading-title">Chargement de ton entraînement</p>
+		<section class="workout-title-section">
+			<div class="skeleton sk-workout-title"></div>
+		</section>
+		<section class="list">
+			{#each Array(2) as _}
+				<div class="panel skeleton-exercise">
+					<div class="skeleton sk-ex-name"></div>
+					<div class="sk-sets">
+						{#each Array(3) as _}
+							<div class="skeleton sk-set-row"></div>
+						{/each}
+					</div>
+				</div>
+			{/each}
 		</section>
 	{:else}
 		<section class="workout-title-section">
@@ -509,60 +517,49 @@
 		gap: 0.75rem;
 	}
 
-	/* ─── Loading screen ─── */
-	.loading-screen {
-		min-height: 48dvh;
+	/* ─── Skeleton ─── */
+	@keyframes shimmer {
+		0%   { background-position: -600px 0; }
+		100% { background-position: 600px 0; }
+	}
+
+	.skeleton {
+		border-radius: 0.5rem;
+		background: linear-gradient(
+			90deg,
+			rgba(164, 0, 240, 0.18) 25%,
+			rgba(199, 53, 255, 0.38) 50%,
+			rgba(164, 0, 240, 0.18) 75%
+		);
+		background-size: 1200px 100%;
+		animation: shimmer 1.4s ease-in-out infinite;
+	}
+
+	.sk-workout-title {
+		height: clamp(1.9rem, 4.6vw, 2.4rem);
+		width: 52%;
+		border-radius: 0.6rem;
+	}
+
+	.skeleton-exercise {
+		pointer-events: none;
 		display: grid;
-		place-items: center;
-		text-align: center;
-		padding: 1.4rem;
-		gap: 1rem;
+		gap: 0.65rem;
 	}
 
-	.dumbbell-loader {
-		display: flex;
-		align-items: center;
-		gap: 1.2rem;
-		font-size: 2rem;
-		color: var(--accent-2);
+	.sk-ex-name {
+		height: 1rem;
+		width: 44%;
 	}
 
-	.dumbbell {
-		display: inline-block;
+	.sk-sets {
+		display: grid;
+		gap: 0.45rem;
 	}
 
-	.dumbbell.left {
-		animation: dumbbell-left 1s ease-in-out infinite;
-	}
-
-	.dumbbell.right {
-		animation: dumbbell-right 1s ease-in-out infinite;
-	}
-
-	.loading-title {
-		font-size: 1rem;
-		font-weight: 700;
-		color: var(--text-2);
-	}
-
-	@keyframes dumbbell-left {
-		0%,
-		100% {
-			transform: translateY(0) rotate(-18deg);
-		}
-		50% {
-			transform: translateY(-8px) rotate(-6deg);
-		}
-	}
-
-	@keyframes dumbbell-right {
-		0%,
-		100% {
-			transform: translateY(0) rotate(18deg);
-		}
-		50% {
-			transform: translateY(-8px) rotate(6deg);
-		}
+	.sk-set-row {
+		height: 2.4rem;
+		border-radius: 0.6rem;
 	}
 
 	/* ─── Bottom action bar ─── */

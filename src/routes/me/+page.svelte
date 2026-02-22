@@ -97,7 +97,15 @@
 	{/if}
 
 	{#if loading}
-		<p class="state"><i class="fa-solid fa-spinner fa-spin"></i> Chargement...</p>
+		<section class="list">
+			{#each Array(4) as _}
+				<div class="panel card skeleton-card">
+					<div class="skeleton sk-title"></div>
+					<div class="skeleton sk-subtitle"></div>
+					<div class="skeleton sk-go"></div>
+				</div>
+			{/each}
+		</section>
 	{:else if workouts.length === 0}
 		<p class="state"><i class="fa-regular fa-folder-open"></i> Aucun entraînement</p>
 	{:else}
@@ -282,6 +290,43 @@
 	.list {
 		display: grid;
 		gap: 0.65rem;
+	}
+
+	/* ─── Skeleton ─── */
+	@keyframes shimmer {
+		0%   { background-position: -600px 0; }
+		100% { background-position: 600px 0; }
+	}
+
+	.skeleton {
+		border-radius: 0.5rem;
+		background: linear-gradient(
+			90deg,
+			rgba(164, 0, 240, 0.18) 25%,
+			rgba(199, 53, 255, 0.38) 50%,
+			rgba(164, 0, 240, 0.18) 75%
+		);
+		background-size: 1200px 100%;
+		animation: shimmer 1.4s ease-in-out infinite;
+	}
+
+	.skeleton-card {
+		pointer-events: none;
+	}
+
+	.sk-title {
+		height: 1rem;
+		width: 55%;
+	}
+
+	.sk-subtitle {
+		height: 0.78rem;
+		width: 38%;
+	}
+
+	.sk-go {
+		height: 0.78rem;
+		width: 18%;
 	}
 
 	.card {

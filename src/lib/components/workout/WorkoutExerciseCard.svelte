@@ -62,7 +62,7 @@
 					<input
 						type="number"
 						min="0"
-						step="0.5"
+						step="0.25"
 						value={setItem.weight}
 						on:input={(event) => onUpdateSetField(setIndex, 'weight', event.currentTarget.value)}
 					/>

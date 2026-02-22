@@ -20,7 +20,7 @@ export default defineConfig({
 				display: 'standalone',
 				orientation: 'portrait',
 				scope: '/',
-				start_url: '/',
+				start_url: '/login',
 				lang: 'fr',
 				categories: ['health', 'fitness', 'sports'],
 				icons: [

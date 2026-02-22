@@ -2,6 +2,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
 
 :root {
+	/* ─── Safe area (Dynamic Island, home indicator, landscape) ─── */
+	--sat: env(safe-area-inset-top,    0px);
+	--sar: env(safe-area-inset-right,  0px);
+	--sab: env(safe-area-inset-bottom, 0px);
+	--sal: env(safe-area-inset-left,   0px);
+
 	/* ─── Palette ─── */
 	--primary-50:  #fcf3ff;
 	--primary-100: #f7e3ff;
@@ -58,8 +64,15 @@
 
 body {
 	min-height: 100vh;
+	min-height: 100dvh; /* dynamic viewport pour Safari mobile */
 	background: var(--bg);
 	color: var(--text-1);
+
+	/* Pousse le contenu hors de la zone Dynamic Island / encoche / home indicator */
+	padding-top:    var(--sat);
+	padding-right:  var(--sar);
+	padding-bottom: var(--sab);
+	padding-left:   var(--sal);
 }
 
 button,
