@@ -10,7 +10,7 @@
 	let workoutName = '';
 	/** @type {{ id: string; username: string } | null} */
 	let user = null;
-	/** @type {Array<{ id: string; name: string; createdAt: string; exercises: any[] }>} */
+	/** @type {Array<{ id: string; name: string; createdAt: string; exercises: any[], updatedAt: string }>} */
 	let workouts = [];
 
 	/** @param {unknown} err */
@@ -114,7 +114,7 @@
 				<a class="panel card" href={`/workout/${workout.id}`}>
 					<h2><i class="fa-solid fa-calendar-check"></i> {workout.name}</h2>
 					<p class="subtitle">
-						{new Date(workout.createdAt).toLocaleDateString('fr-FR')} · {workout.exercises?.length || 0}
+						{new Date(workout.updatedAt).toLocaleDateString('fr-FR')} · {workout.exercises?.length || 0}
 						exercice(s)
 					</p>
 					<span class="go">Ouvrir <i class="fa-solid fa-arrow-right"></i></span>
